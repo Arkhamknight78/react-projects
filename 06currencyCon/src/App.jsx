@@ -51,11 +51,12 @@ function App() {
                                 label="From"
                                 amount={amount}
                                 currencyOptions={options}
-                                onAmtChange={(amt) => setAmount(amt)}
+                                onAmtChange={(amt) => setAmount(amt)} // This function is called when the input value is changed
+                                // `onAmtChange` is a function that is passed as a prop to the InputBox component
                                 onCurrencyChange={(currency) => setFrom(currency)}
                                 
                                 
-
+                        
                                 
                             />
                         </div>
