@@ -5,8 +5,8 @@ function App() {
   const [numberAllow, setNumberAllow] = useState(false);
 
   const [charAllow, setCharAllow] = useState(false);
-  const [upperAllow, setUpperAllow] = useState(false);
-  const [lowerAllow, setLowerAllow] = useState(false);
+  // const [upperAllow, setUpperAllow] = useState(false);
+  // const [lowerAllow, setLowerAllow] = useState(false);
   //ref hook
   const passRef= useRef(null)
 
@@ -38,7 +38,7 @@ function App() {
     passRef.current?.select()
     passRef.current?.selectionRange(0, {length})
     window.navigator.clipboard.writeText(password)
-  }, [password])  
+  }, [password, length])  
 
 
 
