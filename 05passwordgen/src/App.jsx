@@ -81,7 +81,7 @@ Execution: useEffect runs the effect function based on dependencies, while useCa
       <div className="w-full max-w-md mx-auto shadow-md-rounded-lg px-4 my-8 py-3  text-white bg-gray-700 text-center">
         <div>
           <h1 className="text-1xl  py-2 text-white">Password Generator</h1>
-          <div className="flex shadow rounded-lg overflow-hidden mb-4 bg-white mb-4">{/* Generate button*/}
+          <div className="flex shadow rounded-lg overflow-hidden bg-white mb-4">{/* Generate button*/}
             <input   // Copy button
               type="text"
               value={password}
