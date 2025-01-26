@@ -45,7 +45,9 @@ const router = createBrowserRouter(
       <Route path="contact" element={<Contact />} />
       <Route path="user/:id" element={<User />} />
       <Route 
-      loader={githubInfoLoader}
+      loader={githubInfoLoader} // loader is a function that returns a promise that resolves to a module. 
+      // The module is then rendered as a React element.
+      // The loader function is called with an object containing the route's params and query.
       path="Github" 
       element={<Github />} />
 
