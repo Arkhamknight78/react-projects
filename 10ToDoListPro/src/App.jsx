@@ -38,7 +38,10 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   const AddTodo = (todo) => {
-    setTodos((prev) => [...prev, { id: (new Date().valueOf()), ...todo }]); //
+    setTodos((prev) => [...prev, { id: (Date.now()), ...todo }]); 
+    //spread the previous todos and add the new todo object to the array
+    //the id is set to the current date
+    //this will add the new todo to the todos array
   };
 
   const UpdateTodo = (id, todo) => {
@@ -48,7 +51,7 @@ function App() {
   };
 
   const RemoveTodo = (id) => {
-    console.log(id);
+    // console.log(id);
     
     setTodos((prev) =>
       prev.filter((todo) => todo.id !== id));
