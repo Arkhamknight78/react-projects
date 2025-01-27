@@ -6,7 +6,8 @@ function Layout() {
   return (
     <>
     <Header />
-    <Outlet />
+    <Outlet /> 
+    {/* // Outlet is a placeholder for the child route's content. */}
     <Footer />  
 
     </>
