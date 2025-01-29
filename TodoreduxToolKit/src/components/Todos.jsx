@@ -6,6 +6,11 @@ function TodoItem({ todo }) {
   const dispatch = useDispatch()
   const [isEditable, setIsEditable] = useState(false)
   const [todoMsg, setTodoMsg] = useState(todo.text)
+  //made individual useStates for each todo item to handle the edit functionality
+  //this is because we need to handle the edit functionality for each todo item individually
+  //if we use a single useState for all todo items, then all todo items will be editable at the same time
+  //hence each todoItem will have its own isEditable and todoMsg state
+  
 
   return (
     <li className="mt-4 flex justify-between items-center bg-zinc-600 px-4 py-2 rounded">
@@ -48,7 +53,9 @@ function Todos() {
       <div className="text-2xl text-blue-800">Todos</div>
       <ul className="list-none">
         {todos.map((todo) => (
-          <TodoItem key={todo.id} todo={todo} />
+          <TodoItem key={todo.id} todo={todo} /> 
+          // made a new component TodoItem to handle the individual todo items
+        
         ))}
       </ul>
     </>
