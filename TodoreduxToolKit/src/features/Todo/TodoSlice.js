@@ -22,7 +22,7 @@
             //action.payload is the data that is dispatched to the store
             //payload can be anything from a string to an object
             toggleTodo: (state, action)=>{
-                const existingTodo= state.todos.find((todo)=> todo.id==action.id)
+                const existingTodo= state.todos.find((todo)=> todo.id===action.id)
                 if(existingTodo){
                     existingTodo.completed = !existingTodo.completed
                 }
@@ -36,7 +36,7 @@
             },
             updateTodo: (state, action)=>{
                 const {id, text}=action.payload
-                const existingTodo= state.find((todo)=> todo.id==id)
+                const existingTodo= state.todos.find((todo)=> todo.id==id)
                 if(existingTodo){
                     existingTodo.text=text
                 }
