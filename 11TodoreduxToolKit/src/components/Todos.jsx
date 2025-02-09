@@ -13,11 +13,11 @@ function TodoItem({ todo }) {
   
 
   return (
-    <li className="mt-4 flex justify-between items-center bg-zinc-600 px-4 py-2 rounded">
+    <li className="mt-4 flex justify-between items-center bg-zinc-400 px-4 py-2 rounded">
       <input
         type="text"
-        className={`border outline-none w-full bg-transparent rounded-lg ${
-          isEditable ? "border-black/10 px-2" : "border-transparent"
+        className={`border w-full bg-transparent rounded-lg ${
+          isEditable ? "border-white border-2 px-2" : "border-transparent"
         } ${todo.completed ? "line-through" : ""}`}
         value={todoMsg}
         onChange={(e) => setTodoMsg(e.target.value)}
@@ -37,7 +37,7 @@ function TodoItem({ todo }) {
           }
           setIsEditable((prev) => !prev)
         }}
-        className="text-white bg-green-500 border-0 py-1 px-4 focus:outline-none hover:bg-green-600 rounded text-md"
+        className="text-white bg-green-500 border-0 py-1 px-4 focus:outline-none hover:bg-green-800 rounded text-md"
       >
         {isEditable ? "Save" : "Edit"}
       </button>
@@ -50,7 +50,7 @@ function Todos() {
 
   return (
     <>
-      <div className="text-2xl text-blue-800">Todos</div>
+      <div className="text-5xl text-blue-800 py-15">Todos</div>
       <ul className="list-none">
         {todos.map((todo) => (
           <TodoItem key={todo.id} todo={todo} /> 
