@@ -12,18 +12,16 @@ export class AuthService {
   }
 
   async createAccount({ email, password, name}) {
-    
+    // const randomString = Math.random().toString(36).substring(2, 15);
       try {
-        const userAcc = await this.account.create(
-          ID.unique,
-          email,
-          password,
-          name
-          
-        );
+         const userId = ID.unique();
+        console.log("Generated User ID:", userId);
+        const userAcc= await this.account.create(userId, email, password, name);
+        // await this.account.create(userId, email, password, username);
   
         if (userAcc) {
-        //   return userAcc;
+          // return userAcc;
+        console.log("User signed up successfully");
         return this.login({ email, password });
 
         } else return null;
@@ -35,13 +33,11 @@ export class AuthService {
 
     async login({ email, password }) {
       try {
-        const session = await this.client.account.createEmailSession(email, password);
-    
-        if (session) {
-          return session;
-        } else return null;
+        return await this.account.createEmailPasswordSession(email, password);
+
       } catch (error) {
         console.log(error);
+        return null;
         
       }
     }
@@ -56,7 +52,7 @@ export class AuthService {
     }
 
     async logout(){
-        try{
+        try{ //promise to delete all sessions
             return await this.account.deleteSessions();
         }catch(error){
             console.log(`appwrite error: ${error}`);

@@ -58,7 +58,7 @@ export class Service {
 
   async getPost(docId) {
     try {
-      return await this.databases.getDocuments(
+      return await this.databases.getDocument(
         conf.appwriteDB,
         conf.appwriteColl,
         docId
@@ -102,8 +102,20 @@ export class Service {
   }
 
   FilePreview = (fileId) => {
-    return this.bucket.getFilePreview(conf.appwriteBuck, fileId)
-  }
+    if (!fileId) {
+        console.error("Invalid file ID for preview");
+        return ""; // Return empty string to avoid errors
+    }
+    try {
+        const url = this.bucket.getFilePreview(conf.appwriteBuck, fileId);
+        // console.log("Generated Preview URL:", url);
+        return url;
+    } catch (error) {
+        console.error("Error generating preview:", error);
+        return "";
+    }
+};
+
 }
 
 const service= new Service();
