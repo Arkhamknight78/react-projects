@@ -1,9 +1,9 @@
 
-function Logo({width= '100px'}) {
+function Logo({width= '50px'}) {
   return (
     <div>
       <img
-        src="https://www.svgrepo.com/show/1191/cooking.svg"
+        src="/blog_logo1.png"
         alt="Logo"
         width={width}
     />
